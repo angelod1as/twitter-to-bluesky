@@ -13,4 +13,4 @@ export const credentials = {
 
 export const twitterUrl = "https://twitter.com/"
 export const authFile = "playwright/.auth/user.json"
-export const twitterProfileUrl = `https://twitter.com/${credentials.twitter.username}}`
+export const twitterFollowingUrl = `https://twitter.com/${credentials.twitter.username}/following`
