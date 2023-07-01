@@ -1,0 +1,28 @@
+{
+  "name": "twitter-to-bluesky",
+  "version": "0.0.1",
+  "description": "Copy all your Twitter followers and (try to) follow them on Bluesky",
+  "main": "dist/app.js",
+  "type": "module",
+  "repository": "https://github.com/angelod1as/twitter-to-bluesky",
+  "author": "Angelo Dias (www.angelodias.com.br)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts --project ./tsconfig.json",
+    "start": "tsc && node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.44.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "playwright": "^1.35.1"
+  }
+}

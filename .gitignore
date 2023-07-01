@@ -1,0 +1,32 @@
+# Editors
+.idea
+.project
+.ropeproject
+.sublime-project
+.sublime-workspace
+.vscode
+
+# OS files
+.DS_Store
+thumbs.db
+
+# Dependency directories
+node_modules/
+
+# Testing
+coverage/
+
+# Environment variables
+.env*
+!.env.example
+
+# Lock files (this project uses yarn)
+package-lock.json
+*.tsbuildinfo
+
+# Log files
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
