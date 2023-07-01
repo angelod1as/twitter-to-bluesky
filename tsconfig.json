@@ -15,7 +15,9 @@
     "strict": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "lib": ["es2015"]
 }
