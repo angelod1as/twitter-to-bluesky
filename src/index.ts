@@ -1,8 +1,10 @@
 // Import the Chromium browser into our scraper.
 import { chromium } from "playwright"
-import { auth } from "./auth.ts"
-import { authFile, twitterUrl } from "./constants.ts"
+import { authTwitter } from "./auth-twitter.ts"
+import { constants } from "./constants.ts"
 import { checkCredentials } from "./check-credentials.ts"
+import { getTwitterFollowingCount } from "./get-twitter-following-count.ts"
+import { getTwitterFollowingHandles } from "./get-twitter-following-handles.ts"
 
 checkCredentials()
 
@@ -11,19 +13,16 @@ const newBrowser = await chromium.launch({
 })
 
 const browser = await newBrowser.newContext({
-  storageState: `./${authFile}`,
+  storageState: `./${constants.authFile}`,
 })
 
 const page = await browser.newPage()
-await page.goto(twitterUrl)
-await auth(page)
 
-// Open a new page / tab in the browser.
+// HERE
+await page.goto(constants.twitter.rootUrl)
+await authTwitter(page)
+const followersCount = await getTwitterFollowingCount(page)
 
-// Tell the tab to navigate to the JavaScript topic page.
+await getTwitterFollowingHandles(page, followersCount)
 
-// Pause for 10 seconds, to see what's going on.
-// await page.waitForTimeout(1000)
-
-// Turn off the browser to clean up after ourselves.
-// await browser.close()
+await browser.close()

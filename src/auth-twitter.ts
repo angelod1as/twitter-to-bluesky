@@ -1,9 +1,14 @@
 import { Page } from "playwright"
-import { authFile, credentials, twitterFollowingUrl } from "./constants.ts"
+import { constants } from "./constants.ts"
 
-const { twitter } = credentials
+const { twitter, authFile } = constants
 
-export const auth = async (page: Page) => {
+export const authTwitter = async (page: Page) => {
+  // Already logged in
+  if (page.url().includes("home")) {
+    return
+  }
+
   await page
     .getByLabel("Phone, email address, or username")
     .fill(twitter.username)
@@ -16,7 +21,4 @@ export const auth = async (page: Page) => {
   })
 
   await page.context().storageState({ path: `${authFile}` })
-  console.log(await page.context().storageState())
-
-  await page.goto(twitterFollowingUrl)
 }
